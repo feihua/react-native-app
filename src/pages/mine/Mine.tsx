@@ -70,8 +70,8 @@ export default ({ navigation }) => {
       <View style={styles.mine_header}>
         <Image style={styles.user_bg} source={user_bg} />
         <View style={styles.mine_header_left}>
-          <Image style={styles.mine_header_img} source={{ uri:"https://macro-oss.oss-cn-shenzhen.aliyuncs.com/mall/icon/github_icon_02.png" }} />
-          <Text style={{color:'#303133', fontSize: 30}}>koobe</Text>
+          <Image style={styles.mine_header_img} source={{ uri: "https://macro-oss.oss-cn-shenzhen.aliyuncs.com/mall/icon/github_icon_02.png" }} />
+          <Text style={{ color: "#303133", fontSize: 30 }}>koobe</Text>
         </View>
         <View style={styles.mine_header_right}>
           <TouchableOpacity
@@ -160,11 +160,19 @@ export default ({ navigation }) => {
             <Text style={styles.third_section_item_txt}>我的足迹</Text>
             <Image style={styles.third_section_item_right_arrow} source={right_arrow} />
           </View>
-          <View style={styles.third_section_item}>
+          <TouchableOpacity
+            style={styles.third_section_item}
+            onPress={() => {
+              navigation.navigate({
+                name: "Focus"
+              });
+            }}
+          >
             <Image style={styles.third_section_item_left_img} source={guanzhu} />
             <Text style={styles.third_section_item_txt}>我的关注</Text>
             <Image style={styles.third_section_item_right_arrow} source={right_arrow} />
-          </View>
+          </TouchableOpacity>
+
           <View style={styles.third_section_item}>
             <Image style={styles.third_section_item_left_img} source={shoucang} />
             <Text style={styles.third_section_item_txt}>我的收藏</Text>
@@ -209,39 +217,39 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "100%",
     backgroundColor: "#f5f5f5",
-    flexDirection: "column",
+    flexDirection: "column"
     // alignItems: "center"
   },
-  mine_header:{
+  mine_header: {
     width: "100%",
     height: 200,
-    flexDirection: "row",
+    flexDirection: "row"
   },
-  mine_header_left:{
+  mine_header_left: {
     flexDirection: "row",
     alignItems: "center",
     marginLeft: 15,
-    flex:4
+    flex: 4
   },
-  mine_header_img:{
+  mine_header_img: {
     width: 61,
     height: 61,
-    marginRight:15,
-    borderRadius: 28,
+    marginRight: 15,
+    borderRadius: 28
   },
-  mine_header_right:{
-    padding:15,
+  mine_header_right: {
+    padding: 15,
     flexDirection: "row",
-    flex:1
+    flex: 1
   },
-  mine_header_message_img:{
+  mine_header_message_img: {
     width: 30,
     height: 30
   },
-  mine_header_setting_img:{
-    marginLeft:15,
+  mine_header_setting_img: {
+    marginLeft: 15,
     width: 30,
-    height: 30,
+    height: 30
   },
   user_bg: {
     width: "100%",
