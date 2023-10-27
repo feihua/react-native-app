@@ -1,5 +1,5 @@
 import React from "react";
-import { Image, StyleSheet, Text, TouchableOpacity, View, ScrollView } from "react-native";
+import { Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 // import { useNavigation } from '@react-navigation/native';
 // import { StackNavigationProp } from '@react-navigation/stack';
 // import { load } from '../../utils/Storage';
@@ -147,7 +147,7 @@ export default ({ navigation }) => {
             style={styles.third_section_item}
             onPress={() => {
               navigation.navigate({
-                name: "Login"
+                name: "Address"
               });
             }}
           >

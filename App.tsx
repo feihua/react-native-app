@@ -17,9 +17,10 @@ import MainTab from "./src/pages/main/MainTab";
 import Login from "./src/pages/login/Login";
 import SearchProducts from "./src/pages/searchProducts/SearchProducts";
 import ProductDetail from "./src/pages/productDetail/ProductDetail";
-import Mine from "./src/pages/mine/Mine";
 import Message from "./src/pages/mine/message/Message";
 import Setting from "./src/pages/mine/setting/Setting";
+import Address from "./src/pages/mine/Address/Address";
+import EditAddress from "./src/pages/mine/Address/EditAddress";
 
 // @ts-ignore
 function HomeScreen({ navigation, route }) {
@@ -217,7 +218,7 @@ function App(): JSX.Element {
         //   }
         // }}
         screenOptions={{
-          headerShown: false,
+          headerShown: false
         }}
       >
         <Stack.Screen name="Welcome" component={Welcome} />
@@ -227,6 +228,8 @@ function App(): JSX.Element {
         <Stack.Screen name="ProductDetail" component={ProductDetail} />
         <Stack.Screen name="Message" component={Message} />
         <Stack.Screen name="Setting" component={Setting} />
+        <Stack.Screen name="Address" component={Address} />
+        <Stack.Screen name="EditAddress" component={EditAddress} />
 
         <Stack.Screen name="Home" component={HomeScreen}
           // options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
