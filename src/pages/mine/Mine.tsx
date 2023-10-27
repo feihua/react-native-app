@@ -1,5 +1,5 @@
 import React from "react";
-import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Image, StyleSheet, Text, TouchableOpacity, View, ScrollView } from "react-native";
 // import { useNavigation } from '@react-navigation/native';
 // import { StackNavigationProp } from '@react-navigation/stack';
 // import { load } from '../../utils/Storage';
@@ -66,8 +66,39 @@ export default ({ navigation }) => {
   // }
 
   return (
-    <View style={styles.root}>
-      <Image style={styles.user_bg} source={user_bg} />
+    <ScrollView style={styles.root}>
+      <View style={styles.mine_header}>
+        <Image style={styles.user_bg} source={user_bg} />
+        <View style={styles.mine_header_left}>
+          <Image style={styles.mine_header_img} source={{ uri:"https://macro-oss.oss-cn-shenzhen.aliyuncs.com/mall/icon/github_icon_02.png" }} />
+          <Text style={{color:'#303133', fontSize: 30}}>koobe</Text>
+        </View>
+        <View style={styles.mine_header_right}>
+          <TouchableOpacity
+            style={styles.second_section_item}
+            onPress={() => {
+              navigation.navigate({
+                name: "Message"
+              });
+            }}
+          >
+            <Image style={styles.mine_header_message_img} source={require("../../assets/message.png")} />
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.second_section_item}
+            onPress={() => {
+              navigation.navigate({
+                name: "Setting"
+              });
+            }}
+          >
+            <Image style={styles.mine_header_setting_img} source={require("../../assets/setting_white.png")} />
+          </TouchableOpacity>
+
+
+        </View>
+      </View>
+
       <View style={styles.all_section}>
         <View style={styles.first_section}>
           <View style={styles.first_section_item}>
@@ -144,11 +175,18 @@ export default ({ navigation }) => {
             <Text style={styles.third_section_item_txt}>我的评价</Text>
             <Image style={styles.third_section_item_right_arrow} source={right_arrow} />
           </View>
-          <View style={styles.third_section_item}>
+          <TouchableOpacity
+            style={styles.third_section_item}
+            onPress={() => {
+              navigation.navigate({
+                name: "Setting"
+              });
+            }}
+          >
             <Image style={styles.third_section_item_left_img} source={setting} />
             <Text style={styles.third_section_item_txt}>设置</Text>
             <Image style={styles.third_section_item_right_arrow} source={right_arrow} />
-          </View>
+          </TouchableOpacity>
         </View>
         {/*<Button*/}
         {/*  title="登录"*/}
@@ -162,7 +200,7 @@ export default ({ navigation }) => {
         {/*  }}*/}
         {/*/>*/}
       </View>
-    </View>
+    </ScrollView>
   );
 }
 
@@ -172,11 +210,43 @@ const styles = StyleSheet.create({
     height: "100%",
     backgroundColor: "#f5f5f5",
     flexDirection: "column",
-    alignItems: "center"
+    // alignItems: "center"
+  },
+  mine_header:{
+    width: "100%",
+    height: 200,
+    flexDirection: "row",
+  },
+  mine_header_left:{
+    flexDirection: "row",
+    alignItems: "center",
+    marginLeft: 15,
+    flex:4
+  },
+  mine_header_img:{
+    width: 61,
+    height: 61,
+    marginRight:15,
+    borderRadius: 28,
+  },
+  mine_header_right:{
+    padding:15,
+    flexDirection: "row",
+    flex:1
+  },
+  mine_header_message_img:{
+    width: 30,
+    height: 30
+  },
+  mine_header_setting_img:{
+    marginLeft:15,
+    width: 30,
+    height: 30,
   },
   user_bg: {
     width: "100%",
-    height: 200
+    height: 200,
+    position: "absolute"
     // marginTop: 200,
     // resizeMode: 'contain',
   },

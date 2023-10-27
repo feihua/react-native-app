@@ -18,6 +18,8 @@ import Login from "./src/pages/login/Login";
 import SearchProducts from "./src/pages/searchProducts/SearchProducts";
 import ProductDetail from "./src/pages/productDetail/ProductDetail";
 import Mine from "./src/pages/mine/Mine";
+import Message from "./src/pages/mine/message/Message";
+import Setting from "./src/pages/mine/setting/Setting";
 
 // @ts-ignore
 function HomeScreen({ navigation, route }) {
@@ -215,16 +217,16 @@ function App(): JSX.Element {
         //   }
         // }}
         screenOptions={{
-          headerShown: false
+          headerShown: false,
         }}
       >
         <Stack.Screen name="Welcome" component={Welcome} />
         <Stack.Screen name="MainTab" component={MainTab} />
         <Stack.Screen name="Login" component={Login} />
-        {/*<Stack.Screen name="Categories" component={Categories} />*/}
         <Stack.Screen name="SearchProducts" component={SearchProducts} />
         <Stack.Screen name="ProductDetail" component={ProductDetail} />
-        {/*<Stack.Screen name="Mine.tsx" component={Mine} />*/}
+        <Stack.Screen name="Message" component={Message} />
+        <Stack.Screen name="Setting" component={Setting} />
 
         <Stack.Screen name="Home" component={HomeScreen}
           // options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
