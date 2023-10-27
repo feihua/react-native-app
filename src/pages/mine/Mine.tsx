@@ -155,11 +155,18 @@ export default ({ navigation }) => {
             <Text style={styles.third_section_item_txt}>地址管理</Text>
             <Image style={styles.third_section_item_right_arrow} source={right_arrow} />
           </TouchableOpacity>
-          <View style={styles.third_section_item}>
+          <TouchableOpacity
+            style={styles.third_section_item}
+            onPress={() => {
+              navigation.navigate({
+                name: "History"
+              });
+            }}
+          >
             <Image style={styles.third_section_item_left_img} source={history} />
             <Text style={styles.third_section_item_txt}>我的足迹</Text>
             <Image style={styles.third_section_item_right_arrow} source={right_arrow} />
-          </View>
+          </TouchableOpacity>
           <TouchableOpacity
             style={styles.third_section_item}
             onPress={() => {
@@ -173,11 +180,18 @@ export default ({ navigation }) => {
             <Image style={styles.third_section_item_right_arrow} source={right_arrow} />
           </TouchableOpacity>
 
-          <View style={styles.third_section_item}>
+          <TouchableOpacity
+            style={styles.third_section_item}
+            onPress={() => {
+              navigation.navigate({
+                name: "Collect"
+              });
+            }}
+          >
             <Image style={styles.third_section_item_left_img} source={shoucang} />
             <Text style={styles.third_section_item_txt}>我的收藏</Text>
             <Image style={styles.third_section_item_right_arrow} source={right_arrow} />
-          </View>
+          </TouchableOpacity>
           <View style={styles.third_section_item}>
             <Image style={styles.third_section_item_left_img} source={pingjia} />
             <Text style={styles.third_section_item_txt}>我的评价</Text>

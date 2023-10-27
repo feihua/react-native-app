@@ -22,6 +22,8 @@ import Setting from "./src/pages/mine/setting/Setting";
 import Address from "./src/pages/mine/Address/Address";
 import EditAddress from "./src/pages/mine/Address/EditAddress";
 import Focus from "./src/pages/mine/Focus/Focus";
+import History from "./src/pages/mine/History/History";
+import Collect from "./src/pages/mine/Collect/Collect";
 
 // @ts-ignore
 function HomeScreen({ navigation, route }) {
@@ -232,6 +234,8 @@ function App(): JSX.Element {
         <Stack.Screen name="Address" component={Address} />
         <Stack.Screen name="EditAddress" component={EditAddress} />
         <Stack.Screen name="Focus" component={Focus} />
+        <Stack.Screen name="History" component={History} />
+        <Stack.Screen name="Collect" component={Collect} />
 
         <Stack.Screen name="Home" component={HomeScreen}
           // options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
