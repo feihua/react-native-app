@@ -1,5 +1,5 @@
 import React from "react";
-import { Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Image, RefreshControl, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 // import { useNavigation } from '@react-navigation/native';
 // import { StackNavigationProp } from '@react-navigation/stack';
 // import { load } from '../../utils/Storage';
@@ -65,8 +65,26 @@ export default ({ navigation }) => {
   //     navigation.replace('MainTab');
   // }
 
+  const wait = (timeout: number | undefined) => {
+    return new Promise(resolve => {
+      setTimeout(resolve, timeout);
+    });
+  };
+  const [refreshing, setRefreshing] = React.useState(false);
+
+  const onRefresh = React.useCallback(() => {
+    setRefreshing(true);
+
+    wait(2000).then(() => setRefreshing(false));
+  }, []);
+
   return (
-    <ScrollView style={styles.root}>
+    <ScrollView style={styles.root}
+      // contentContainerStyle={styles.scrollView}
+      refreshControl={
+        <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+      }
+    >
       <View style={styles.mine_header}>
         <Image style={styles.user_bg} source={user_bg} />
         <View style={styles.mine_header_left}>
@@ -374,3 +392,4 @@ const styles = StyleSheet.create({
   }
 
 });
+
