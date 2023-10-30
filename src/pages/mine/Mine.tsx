@@ -109,17 +109,24 @@ export default ({ navigation }) => {
             <Text>1000</Text>
             <Text>成长值</Text>
           </View>
-          <View style={styles.first_section_item}>
+          <TouchableOpacity
+            style={styles.first_section_item}
+            onPress={() => {
+              navigation.navigate({
+                name: "Coupon"
+              });
+            }}
+          >
             <Text>5</Text>
             <Text>优惠券</Text>
-          </View>
+          </TouchableOpacity>
         </View>
         <View style={styles.second_section}>
           <TouchableOpacity
             style={styles.second_section_item}
             onPress={() => {
               navigation.navigate({
-                name: "Login"
+                name: "Order"
               });
             }}
           >
@@ -128,18 +135,51 @@ export default ({ navigation }) => {
             <Text>全部订单</Text>
             {/*</View>*/}
           </TouchableOpacity>
-          <View style={styles.second_section_item}>
+          <TouchableOpacity
+            style={styles.second_section_item}
+            onPress={() => {
+              navigation.navigate({
+                name: "Order"
+              });
+            }}
+          >
             <Image style={styles.second_section_item_left_img} source={daifukuan} />
             <Text>待付款</Text>
-          </View>
-          <View style={styles.second_section_item}>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.second_section_item}
+            onPress={() => {
+              navigation.navigate({
+                name: "Order"
+              });
+            }}
+          >
             <Image style={styles.second_section_item_left_img} source={yifukuan} />
             <Text>待收货</Text>
-          </View>
-          <View style={styles.second_section_item}>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.second_section_item}
+            onPress={() => {
+              navigation.navigate({
+                name: "Order"
+              });
+            }}
+          >
             <Image style={styles.second_section_item_left_img} source={tuihuo} />
             <Text>退款/售后</Text>
-          </View>
+          </TouchableOpacity>
+          {/*<View style={styles.second_section_item}>*/}
+          {/*  <Image style={styles.second_section_item_left_img} source={daifukuan} />*/}
+          {/*  <Text>待付款</Text>*/}
+          {/*</View>*/}
+          {/*<View style={styles.second_section_item}>*/}
+          {/*  <Image style={styles.second_section_item_left_img} source={yifukuan} />*/}
+          {/*  <Text>待收货</Text>*/}
+          {/*</View>*/}
+          {/*<View style={styles.second_section_item}>*/}
+          {/*  <Image style={styles.second_section_item_left_img} source={tuihuo} />*/}
+          {/*  <Text>退款/售后</Text>*/}
+          {/*</View>*/}
         </View>
 
         <View style={styles.third_section}>
