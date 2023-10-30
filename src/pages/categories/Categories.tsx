@@ -1,5 +1,5 @@
 import React from "react";
-import { FlatList, Image, StyleSheet, Text, View } from "react-native";
+import { FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 // import { useNavigation } from '@react-navigation/native';
 // import { StackNavigationProp } from '@react-navigation/stack';
 // import { load } from '../../utils/Storage';
@@ -62,10 +62,21 @@ export default ({ navigation }) => {
           />
         </View>
         <View style={styles.right}>
-          <View style={styles.right_item}>
+          <TouchableOpacity
+            style={styles.right_item}
+            onPress={() => {
+              navigation.navigate({
+                name: "ProductList"
+              });
+            }}
+          >
             <Image style={styles.right_img} source={({ uri: "https://macro-oss.oss-cn-shenzhen.aliyuncs.com/mall/images/20221028/pad_category_01.jpg" })} />
             <Text>平板电脑</Text>
-          </View>
+          </TouchableOpacity>
+          {/*<View style={styles.right_item}>*/}
+          {/*  <Image style={styles.right_img} source={({ uri: "https://macro-oss.oss-cn-shenzhen.aliyuncs.com/mall/images/20221028/pad_category_01.jpg" })} />*/}
+          {/*  <Text>平板电脑</Text>*/}
+          {/*</View>*/}
           <View style={styles.right_item}>
             <Image style={styles.right_img} source={({ uri: "http://macro-oss.oss-cn-shenzhen.aliyuncs.com/mall/images/20190519/5ac48d27N3f5bb821.jpg" })} />
             <Text>手机通讯</Text>

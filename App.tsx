@@ -16,7 +16,7 @@ import Welcome from "./src/pages/welcome/Welcome";
 import MainTab from "./src/pages/main/MainTab";
 import Login from "./src/pages/login/Login";
 import SearchProducts from "./src/pages/searchProducts/SearchProducts";
-import ProductDetail from "./src/pages/productDetail/ProductDetail";
+import ProductDetail from "./src/pages/product/ProductDetail";
 import Message from "./src/pages/mine/message/Message";
 import Setting from "./src/pages/mine/setting/Setting";
 import Address from "./src/pages/mine/Address/Address";
@@ -26,6 +26,9 @@ import History from "./src/pages/mine/History/History";
 import Collect from "./src/pages/mine/Collect/Collect";
 import Order from "./src/pages/mine/Order/Order";
 import Coupon from "./src/pages/mine/Coupon/Coupon";
+import BrandList from "./src/pages/home/brand/BrandList";
+import BrandDetail from "./src/pages/home/brand/BrandDetail";
+import ProductList from "./src/pages/product/ProductList";
 
 // @ts-ignore
 function HomeScreen({ navigation, route }) {
@@ -230,6 +233,7 @@ function App(): JSX.Element {
         <Stack.Screen name="MainTab" component={MainTab} />
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="SearchProducts" component={SearchProducts} />
+        <Stack.Screen name="ProductList" component={ProductList} />
         <Stack.Screen name="ProductDetail" component={ProductDetail} />
         <Stack.Screen name="Message" component={Message} />
         <Stack.Screen name="Setting" component={Setting} />
@@ -240,6 +244,8 @@ function App(): JSX.Element {
         <Stack.Screen name="Collect" component={Collect} />
         <Stack.Screen name="Order" component={Order} />
         <Stack.Screen name="Coupon" component={Coupon} />
+        <Stack.Screen name="BrandList" component={BrandList} />
+        <Stack.Screen name="BrandDetail" component={BrandDetail} />
 
         <Stack.Screen name="Home" component={HomeScreen}
           // options={{ headerTitle: (props) => <LogoTitle {...props} /> }}

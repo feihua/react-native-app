@@ -1,5 +1,5 @@
 import React from "react";
-import { Image, StyleSheet, Text, TextInput, View, ScrollView } from "react-native";
+import { Image, StyleSheet, Text, TextInput, View, ScrollView, TouchableOpacity } from "react-native";
 // import { useNavigation } from '@react-navigation/native';
 // import { StackNavigationProp } from '@react-navigation/stack';
 // import { load } from '../../utils/Storage';
@@ -95,14 +95,21 @@ export default ({ navigation }) => {
         </View>
       </View>
       <View style={styles.brand}>
-        <View style={styles.brand_item}>
+        <TouchableOpacity
+          style={styles.brand_item}
+          onPress={() => {
+            navigation.navigate({
+              name: "BrandList"
+            });
+          }}
+        >
           <Image style={styles.brand_item_img} source={icon_home_brand} />
           <View style={styles.brand_item_view}>
             <Text style={styles.brand_item_view_tx1}>品牌制造商直供</Text>
             <Text style={styles.brand_item_view_tx2}>工厂直达消费者,剔除商品溢价</Text>
           </View>
           <Image style={styles.brand_item_right_arrow} source={right_arrow} />
-        </View>
+        </TouchableOpacity>
         <View style={styles.brand_item_body}>
           <View style={styles.brand_item_body_view}>
             <Image style={styles.brand_item_body_view_img} source={{ uri: "https://macro-oss.oss-cn-shenzhen.aliyuncs.com/mall/images/20200607/5565f5a2N0b8169ae.jpg" }} />
