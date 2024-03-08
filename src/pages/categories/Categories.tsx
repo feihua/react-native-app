@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 // import { useNavigation } from '@react-navigation/native';
 // import { StackNavigationProp } from '@react-navigation/stack';
@@ -6,19 +6,31 @@ import { FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from "react
 // import UserStore from '../../stores/UserStore';
 // @ts-ignore
 import icon_logo_main from "../../assets/icon_main_logo.png";
+import { get, request } from "../../utils/request";
 
 // @ts-ignore
 export default ({ navigation }) => {
 
   // const navigation = useNavigation<StackNavigationProp<any>>();
 
-  // useEffect(() => {
-  //     setTimeout(() => {
-  //         // getUserInfo();
-  //         navigation.replace("Home")
-  //     }, 2000);
-  // }, []);
+  useEffect(() => {
+    requestArticleDetail(1).then(r => console.log(r))
+  }, []);
 
+  const requestArticleDetail = async (id: number) => {
+    try {
+      const params = {
+        id: id,
+      };
+      const { data } = await get('/api/category/queryProductCateList', params);
+
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    } finally {
+
+    }
+  }
   // const getUserInfo = async () => {
   //     const cacheUserInfo = await load('userInfo');
   //     if (!cacheUserInfo) {
@@ -51,12 +63,12 @@ export default ({ navigation }) => {
         <View style={styles.left}>
           <FlatList
             data={[
-              { key: "服装服饰" },
-              { key: "手机数码" },
-              { key: "家用电器" },
-              { key: "家具家装" },
-              { key: "汽车用品" },
-              { key: "电脑办公" }
+              { key: "服装服饰1" },
+              { key: "手机数码1" },
+              { key: "家用电器1" },
+              { key: "家具家装1" },
+              { key: "汽车用品1" },
+              { key: "电脑办公1" }
             ]}
             renderItem={({ item }) => <Text style={styles.item}>{item.key}</Text>}
           />
