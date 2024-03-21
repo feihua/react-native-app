@@ -6,6 +6,11 @@ import { tabData } from "./TabData";
 
 const BottomTab = createBottomTabNavigator();
 
+/**
+ * 描述：tab页
+ * 作者：刘飞华
+ * 日期：2024/3/21 16:05
+ */
 export default ({}) => {
 
   function getTabBarIcon(route: Readonly<{ key: string; name: string; path?: string }> & Readonly<{ params?: Readonly<object | undefined> }>) {
@@ -41,4 +46,4 @@ export default ({}) => {
       }
     </BottomTab.Navigator>
   );
-}
+};
