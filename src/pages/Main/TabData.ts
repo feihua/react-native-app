@@ -1,7 +1,7 @@
-import Home from "../home/Home";
-import Categories from "../categories/Categories";
-import Cart from "../cart/Cart";
-import Mine from "../mine/Mine";
+import Home from "../Home";
+import Categories from "../Categories";
+import Cart from "../Cart";
+import Mine from "../Mine/Mine";
 
 export const tabData = [
   {

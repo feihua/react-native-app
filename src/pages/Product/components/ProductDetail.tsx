@@ -13,7 +13,7 @@ import {
 import icon_logo_main from '../../assets/icon_main_logo.png';
 
 // @ts-ignore
-export default ({navigation}) => {
+export const ProductDetail = ({ navigation }) => {
 
     // const navigation = useNavigation<StackNavigationProp<any>>();
 

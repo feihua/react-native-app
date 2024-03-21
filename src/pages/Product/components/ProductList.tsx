@@ -8,13 +8,13 @@ import { FlatList, Image, StyleSheet, Text, View } from "react-native";
 import icon_logo_main from "../../assets/icon_main_logo.png";
 
 // @ts-ignore
-export default ({ navigation }) => {
+export const ProductList = ({ navigation }) => {
 
   React.useEffect(() => {
     // Use `setOptions` to update the button that we previously specified
     // Now the button includes an `onPress` handler to update the count
     navigation.setOptions({
-      headerShown: true, title: "商品列表",
+      headerShown: true, title: "商品列表"
     });
   }, [navigation]);
   // const navigation = useNavigation<StackNavigationProp<any>>();

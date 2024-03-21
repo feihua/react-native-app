@@ -7,6 +7,7 @@ import { FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from "react
 // @ts-ignore
 import icon_logo_main from "../../assets/icon_main_logo.png";
 import { get, request } from "../../utils/request";
+import { queryCategoryList } from "../../api";
 
 // @ts-ignore
 export default ({ navigation }) => {
@@ -14,15 +15,19 @@ export default ({ navigation }) => {
   // const navigation = useNavigation<StackNavigationProp<any>>();
 
   useEffect(() => {
-    requestArticleDetail(1).then(r => console.log(r))
+    setInterval(() => {
+      requestArticleDetail(1).then(r => console.log(r));
+
+    }, 10000);
+
   }, []);
 
   const requestArticleDetail = async (id: number) => {
     try {
       const params = {
-        id: id,
+        id: id
       };
-      const { data } = await get('/api/category/queryProductCateList', params);
+      const { data } = await queryCategoryList();
 
       console.log(data);
     } catch (error) {

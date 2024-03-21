@@ -271,7 +271,7 @@ export default ({ navigation }) => {
         {/*<Button*/}
         {/*  title="登录"*/}
         {/*  onPress={() => {*/}
-        {/*    // Pass and merge params back to home screen*/}
+        {/*    // Pass and merge params back to Home screen*/}
         {/*    navigation.navigate({*/}
         {/*      name: "Login"*/}
         {/*      // params: { post: postText },*/}

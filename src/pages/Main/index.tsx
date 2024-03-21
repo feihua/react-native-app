@@ -17,11 +17,11 @@ export default ({}) => {
     return ({ focused, color, size }) => {
       let iconName;
       if (route.name === "Home") {
-        iconName = focused ? "home" : "home-outline";
+        iconName = focused ? "Home" : "Home-outline";
       } else if (route.name === "Mine") {
         iconName = focused ? "person" : "person-outline";
       } else if (route.name === "Cart") {
-        iconName = focused ? "cart" : "cart-outline";
+        iconName = focused ? "Cart" : "Cart-outline";
       } else if (route.name === "Categories") {
         iconName = focused ? "category" : "category";
         return <MaterialIcons name={iconName} size={size} color={color} />;
