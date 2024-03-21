@@ -1,6 +1,24 @@
 {
   "extends": "@tsconfig/react-native/tsconfig.json",
   "compilerOptions": {
-    "noImplicitAny": false
+    "noImplicitAny": false,
+    "typeRoots": [
+      "./node_modules/@types",
+      "./custom.d.ts"
+    ],
+    "paths": {
+      "@/*": [
+        "src/*"
+      ],
+      "~/*": [
+        "src/*"
+      ],
+      "@assets/*": [
+        "src/assets/*"
+      ],
+      "@images/*": [
+        "src/assets/images/*"
+      ]
+    }
   }
 }
