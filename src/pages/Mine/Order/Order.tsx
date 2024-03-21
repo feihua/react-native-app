@@ -5,7 +5,7 @@ import { FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from "react
 // import { load } from '../../utils/Storage';
 // import UserStore from '../../stores/UserStore';
 // @ts-ignore
-import icon_logo_main from "../../assets/icon_main_logo.png";
+
 
 // @ts-ignore
 export default ({ navigation }) => {
@@ -386,7 +386,7 @@ export default ({ navigation }) => {
               <Text style={styles.item_view_first_item_time}>2023-05-11 07:33:21</Text>
               <View style={styles.item_view_first_item_right}>
                 <Text style={styles.item_view_first_item_status}>交易完成</Text>
-                <Image style={styles.item_view_first_item_delete_icon} source={require("../../../assets/delete.png")} />
+                <Image style={styles.item_view_first_item_delete_icon} source={require("@images/delete.png")} />
               </View>
             </View>
             <View style={styles.item_view_second_item}>

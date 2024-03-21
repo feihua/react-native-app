@@ -1,2 +1,1 @@
-export * from "./components/ProductList";
-export * from "./components/ProductDetail";
+export * from "./components";

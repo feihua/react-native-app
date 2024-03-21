@@ -5,7 +5,7 @@ import { FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from "react
 // import { load } from '../../utils/Storage';
 // import UserStore from '../../stores/UserStore';
 // @ts-ignore
-import icon_logo_main from "../../assets/icon_main_logo.png";
+
 
 // @ts-ignore
 export default ({ navigation }) => {
@@ -69,9 +69,9 @@ export default ({ navigation }) => {
                   });
                 }}
               >
-                <Image style={styles.item_view_right_img} source={require("../../../assets/edit.png")} />
+                <Image style={styles.item_view_right_img} source={require("@images/edit.png")} />
               </TouchableOpacity>
-              <Image style={styles.item_view_right_img} source={require("../../../assets/delete.png")} />
+              <Image style={styles.item_view_right_img} source={require("@images/delete.png")} />
             </View>
           </View>}
         />

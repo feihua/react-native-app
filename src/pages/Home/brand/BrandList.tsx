@@ -5,7 +5,7 @@ import { FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from "react
 // import { load } from '../../utils/Storage';
 // import UserStore from '../../stores/UserStore';
 // @ts-ignore
-import icon_logo_main from "../../assets/icon_main_logo.png";
+import recommend_brand_banner from "@images/recommend_brand_banner.png";
 
 // @ts-ignore
 export default ({ navigation }) => {
@@ -117,7 +117,7 @@ export default ({ navigation }) => {
 
   return (
     <View style={styles.root}>
-      <Image style={styles.recommend_brand_banner} source={require("../../../assets/recommend_brand_banner.png")} />
+      <Image style={styles.recommend_brand_banner} source={recommend_brand_banner} />
       <View style={styles.title_view}>
         <Text style={{ color: "#303133" }}>相关品牌</Text>
       </View>

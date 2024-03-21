@@ -62,7 +62,7 @@ export default ({ navigation }) => {
               <Text style={styles.item3}>¥2099</Text>
               <Text style={styles.item4}>1</Text>
             </View>
-            <Image style={styles.close} source={require("../../assets/close.png")} />
+            <Image style={styles.close} source={require("@images/close.png")} />
           </View>}
         />
       </View>

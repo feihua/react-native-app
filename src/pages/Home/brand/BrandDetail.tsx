@@ -5,7 +5,7 @@ import { FlatList, Image, StyleSheet, Text, View } from "react-native";
 // import { load } from '../../utils/Storage';
 // import UserStore from '../../stores/UserStore';
 // @ts-ignore
-import icon_logo_main from "../../assets/icon_main_logo.png";
+
 
 // @ts-ignore
 export default ({ navigation }) => {
@@ -133,7 +133,7 @@ export default ({ navigation }) => {
           <Text style={{ color: "#303133" }}>华为</Text>
           <Text style={{ color: "#909399" }}>品牌首字母：H</Text>
         </View>
-        <Image style={styles.love1_img} source={require("../../../assets/love1.png")} />
+        <Image style={styles.love1_img} source={require("@images/love1.png")} />
       </View>
       <View style={styles.brand_story_title}>
         <Text style={{ color: "#303133" }}>品牌故事</Text>

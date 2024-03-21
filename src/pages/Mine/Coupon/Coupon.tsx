@@ -5,7 +5,7 @@ import { FlatList, StyleSheet, Text, View } from "react-native";
 // import { load } from '../../utils/Storage';
 // import UserStore from '../../stores/UserStore';
 // @ts-ignore
-import icon_logo_main from "../../assets/icon_main_logo.png";
+
 
 // @ts-ignore
 export default ({ navigation }) => {

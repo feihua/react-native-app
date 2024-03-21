@@ -5,11 +5,11 @@ import { Button, Image, StyleSheet, Text, TextInput, TouchableOpacity, View } fr
 // import { load } from '../../utils/Storage';
 // import UserStore from '../../stores/UserStore';
 // @ts-ignore
-import icon_triangle from '../../assets/icon_triangle.png';
+import icon_triangle from "@images/icon_triangle.png";
 // @ts-ignore
-import icon_eye_open from '../../assets/icon_eye_open.png';
+import icon_eye_open from "@images/icon_eye_open.png";
 // @ts-ignore
-import icon_eye_close from '../../assets/icon_eye_close.png';
+import icon_eye_close from "@images/icon_eye_close.png";
 // @ts-ignore
 import { formatPhone, replaceBlank } from '../../utils/StringUtil';
 // @ts-ignore

@@ -4,33 +4,29 @@ import { Image, RefreshControl, ScrollView, StyleSheet, Text, TouchableOpacity, 
 // import { StackNavigationProp } from '@react-navigation/stack';
 // import { load } from '../../utils/Storage';
 // import UserStore from '../../stores/UserStore';
-// @ts-ignore
-import icon_logo_main from "../../assets/icon_main_logo.png";
-// @ts-ignore
-import user_bg from "../../assets/user-bg.jpg";
-// @ts-ignore
-import right_arrow from "../../assets/right_arrow.png";
-// @ts-ignore
-import address from "../../assets/addresss.png";
-// @ts-ignore
-import history from "../../assets/history.png";
-// @ts-ignore
-import guanzhu from "../../assets/guanzhu.png";
-// @ts-ignore
-import shoucang from "../../assets/shoucang.png";
-// @ts-ignore
-import pingjia from "../../assets/pingjia.png";
-// @ts-ignore
-import setting from "../../assets/setting.png";
-// @ts-ignore
-import all_order from "../../assets/all_order.png";
-// @ts-ignore
-import daifukuan from "../../assets/daifukuan.png";
-// @ts-ignore
-import yifukuan from "../../assets/yifukuan.png";
-// @ts-ignore
-import tuihuo from "../../assets/tuihuo.png";
-// @ts-ignore
+import UserBg from "@images/user-bg.jpg";
+
+import right_arrow from "@images/right_arrow.png";
+import Address from "@images/addresss.png";
+
+import History from "@images/history.png";
+
+import GuanZhu from "@images/guanzhu.png";
+
+import Shoucang from "@images/shoucang.png";
+
+import Pingjia from "@images/pingjia.png";
+
+import Setting from "@images/setting.png";
+
+import AllOrder from "@images/all_order.png";
+
+import Daifukuan from "@images/daifukuan.png";
+
+import Yifukuan from "@images/yifukuan.png";
+
+import Tuihuo from "@images/tuihuo.png";
+
 export default ({ navigation }) => {
 
   // const navigation = useNavigation<StackNavigationProp<any>>();
@@ -86,7 +82,7 @@ export default ({ navigation }) => {
       }
     >
       <View style={styles.mine_header}>
-        <Image style={styles.user_bg} source={user_bg} />
+        <Image style={styles.user_bg} source={UserBg} />
         <View style={styles.mine_header_left}>
           <Image style={styles.mine_header_img} source={{ uri: "https://macro-oss.oss-cn-shenzhen.aliyuncs.com/mall/icon/github_icon_02.png" }} />
           <Text style={{ color: "#303133", fontSize: 30 }}>koobe</Text>
@@ -100,7 +96,7 @@ export default ({ navigation }) => {
               });
             }}
           >
-            <Image style={styles.mine_header_message_img} source={require("../../assets/message.png")} />
+            <Image style={styles.mine_header_message_img} source={require("@images/message.png")} />
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.second_section_item}
@@ -110,7 +106,7 @@ export default ({ navigation }) => {
               });
             }}
           >
-            <Image style={styles.mine_header_setting_img} source={require("../../assets/setting_white.png")} />
+            <Image style={styles.mine_header_setting_img} source={require("@images/setting_white.png")} />
           </TouchableOpacity>
 
 
@@ -149,7 +145,7 @@ export default ({ navigation }) => {
             }}
           >
             {/*<View style={styles.second_section_item}>*/}
-            <Image style={styles.second_section_item_left_img} source={all_order} />
+            <Image style={styles.second_section_item_left_img} source={AllOrder} />
             <Text>全部订单</Text>
             {/*</View>*/}
           </TouchableOpacity>
@@ -161,7 +157,7 @@ export default ({ navigation }) => {
               });
             }}
           >
-            <Image style={styles.second_section_item_left_img} source={daifukuan} />
+            <Image style={styles.second_section_item_left_img} source={Daifukuan} />
             <Text>待付款</Text>
           </TouchableOpacity>
           <TouchableOpacity
@@ -172,7 +168,7 @@ export default ({ navigation }) => {
               });
             }}
           >
-            <Image style={styles.second_section_item_left_img} source={yifukuan} />
+            <Image style={styles.second_section_item_left_img} source={Yifukuan} />
             <Text>待收货</Text>
           </TouchableOpacity>
           <TouchableOpacity
@@ -183,7 +179,7 @@ export default ({ navigation }) => {
               });
             }}
           >
-            <Image style={styles.second_section_item_left_img} source={tuihuo} />
+            <Image style={styles.second_section_item_left_img} source={Tuihuo} />
             <Text>退款/售后</Text>
           </TouchableOpacity>
           {/*<View style={styles.second_section_item}>*/}
@@ -209,7 +205,7 @@ export default ({ navigation }) => {
               });
             }}
           >
-            <Image style={styles.third_section_item_left_img} source={address} />
+            <Image style={styles.third_section_item_left_img} source={Address} />
             <Text style={styles.third_section_item_txt}>地址管理</Text>
             <Image style={styles.third_section_item_right_arrow} source={right_arrow} />
           </TouchableOpacity>
@@ -221,7 +217,7 @@ export default ({ navigation }) => {
               });
             }}
           >
-            <Image style={styles.third_section_item_left_img} source={history} />
+            <Image style={styles.third_section_item_left_img} source={History} />
             <Text style={styles.third_section_item_txt}>我的足迹</Text>
             <Image style={styles.third_section_item_right_arrow} source={right_arrow} />
           </TouchableOpacity>
@@ -233,7 +229,7 @@ export default ({ navigation }) => {
               });
             }}
           >
-            <Image style={styles.third_section_item_left_img} source={guanzhu} />
+            <Image style={styles.third_section_item_left_img} source={GuanZhu} />
             <Text style={styles.third_section_item_txt}>我的关注</Text>
             <Image style={styles.third_section_item_right_arrow} source={right_arrow} />
           </TouchableOpacity>
@@ -246,12 +242,12 @@ export default ({ navigation }) => {
               });
             }}
           >
-            <Image style={styles.third_section_item_left_img} source={shoucang} />
+            <Image style={styles.third_section_item_left_img} source={Shoucang} />
             <Text style={styles.third_section_item_txt}>我的收藏</Text>
             <Image style={styles.third_section_item_right_arrow} source={right_arrow} />
           </TouchableOpacity>
           <View style={styles.third_section_item}>
-            <Image style={styles.third_section_item_left_img} source={pingjia} />
+            <Image style={styles.third_section_item_left_img} source={Pingjia} />
             <Text style={styles.third_section_item_txt}>我的评价</Text>
             <Image style={styles.third_section_item_right_arrow} source={right_arrow} />
           </View>
@@ -263,7 +259,7 @@ export default ({ navigation }) => {
               });
             }}
           >
-            <Image style={styles.third_section_item_left_img} source={setting} />
+            <Image style={styles.third_section_item_left_img} source={Setting} />
             <Text style={styles.third_section_item_txt}>设置</Text>
             <Image style={styles.third_section_item_right_arrow} source={right_arrow} />
           </TouchableOpacity>

@@ -5,7 +5,7 @@ import { StyleSheet, Switch, Text, TextInput, TouchableOpacity, View } from "rea
 // import { load } from '../../utils/Storage';
 // import UserStore from '../../stores/UserStore';
 // @ts-ignore
-import icon_logo_main from "../../assets/icon_main_logo.png";
+
 
 // @ts-ignore
 export default ({ navigation }) => {

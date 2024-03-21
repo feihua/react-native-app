@@ -5,7 +5,7 @@ import { FlatList, Image, StyleSheet, Text, View } from "react-native";
 // import { load } from '../../utils/Storage';
 // import UserStore from '../../stores/UserStore';
 // @ts-ignore
-import icon_logo_main from "../../assets/icon_main_logo.png";
+
 
 // @ts-ignore
 export default ({ navigation }) => {
@@ -65,7 +65,7 @@ export default ({ navigation }) => {
               <Text style={styles.item_desc}>新品上市全场2折起，新品上市全场2折起，新品上市全场2折起，新品上市全场2折起，新品上市全场2折起</Text>
               <View style={styles.go_detail}>
                 <Text style={styles.item_detail}>查看详情</Text>
-                <Image style={styles.go_detail_img} source={require("../../../assets/right_arrow.png")} />
+                <Image style={styles.go_detail_img} source={require("@images/right_arrow.png")} />
               </View>
             </View>
 

@@ -5,19 +5,19 @@ import { Image, StyleSheet, Text, TextInput, View, ScrollView, TouchableOpacity 
 // import { load } from '../../utils/Storage';
 // import UserStore from '../../stores/UserStore';
 // @ts-ignore
-import icon_logo_main from "../../assets/icon_main_logo.png";
+
 // @ts-ignore
-import scan from "../../assets/scan.png";
+import scan from "@images/scan.png";
 // @ts-ignore
-import message from "../../assets/message.png";
+import message from "@images/message.png";
 // @ts-ignore
-import new_product_banner from "../../assets/new_product_banner.png";
+import new_product_banner from "@images/new_product_banner.png";
 // @ts-ignore
-import icon_home_brand from "../../assets/icon_home_brand.png";
+import icon_home_brand from "@images/icon_home_brand.png";
 // @ts-ignore
-import right_arrow from "../../assets/right_arrow.png";
+import right_arrow from "@images/right_arrow.png";
 // @ts-ignore
-import icon_flash_promotion from "../../assets/icon_flash_promotion.png";
+import icon_flash_promotion from "@images/icon_flash_promotion.png";
 // @ts-ignore
 export default ({ navigation }) => {
 
@@ -78,19 +78,19 @@ export default ({ navigation }) => {
       </View>
       <View style={styles.subject}>
         <View style={styles.subject_item}>
-          <Image style={styles.subject_item_img} source={require("../../assets/c3.png")} />
+          <Image style={styles.subject_item_img} source={require("@images/c3.png")} />
           <Text>专题</Text>
         </View>
         <View style={styles.subject_item}>
-          <Image style={styles.subject_item_img} source={require("../../assets/c5.png")} />
+          <Image style={styles.subject_item_img} source={require("@images/c5.png")} />
           <Text>话题</Text>
         </View>
         <View style={styles.subject_item}>
-          <Image style={styles.subject_item_img} source={require("../../assets/c6.png")} />
+          <Image style={styles.subject_item_img} source={require("@images/c6.png")} />
           <Text>优选</Text>
         </View>
         <View style={styles.subject_item}>
-          <Image style={styles.subject_item_img} source={require("../../assets/c7.png")} />
+          <Image style={styles.subject_item_img} source={require("@images/c7.png")} />
           <Text>特惠</Text>
         </View>
       </View>
