@@ -1,4 +1,13 @@
 import axios, { AxiosResponse } from "axios";
+import Toast from "react-native-root-toast";
+
+// 返回res.data的interface
+export interface IResponse {
+  code: number | string;
+  data: any;
+  msg: string;
+  total: number;
+}
 
 // axios实例
 const instance = axios.create({
@@ -10,7 +19,15 @@ const instance = axios.create({
  * 对返回体错误信息分类
  */
 instance.interceptors.response.use(
-  response => response,
+  response => {
+    if (response.status === 200) {
+      return response.data;
+    } else {
+      Toast.show(String(response.status), {
+        position: Toast.positions.CENTER
+      });
+    }
+  },
   error => {
     const { response } = error;
     if (response) {
