@@ -1,69 +1,46 @@
-import React, { useEffect } from 'react';
-import {
-    View,
-    Image,
-    StyleSheet
-} from 'react-native'
-// import { useNavigation } from '@react-navigation/native';
-// import { StackNavigationProp } from '@react-navigation/stack';
-// import { load } from '../../utils/Storage';
-// import UserStore from '../../stores/UserStore';
+import React, { useEffect } from "react";
+import { Image, StyleSheet, Text, View } from "react-native";
+import Logo from "@images/shopping_cart.png";
+
+/**
+ * 描述：欢迎页
+ * 作者：刘飞华
+ * 日期：2024/3/22 9:26
+ */
+export default ({ navigation }) => {
+
+  useEffect(() => {
+    setTimeout(() => {
+      navigation.replace("MainTab");
+    }, 2000);
+  }, []);
 
 
-// @ts-ignore
-export default ({navigation}) => {
-
-    // const navigation = useNavigation<StackNavigationProp<any>>();
-
-    useEffect(() => {
-        setTimeout(() => {
-            // getUserInfo();
-            navigation.replace("MainTab")
-        }, 2000);
-    }, []);
-
-    // const getUserInfo = async () => {
-    //     const cacheUserInfo = await load('userInfo');
-    //     if (!cacheUserInfo) {
-    //         startLogin();
-    //     } else {
-    //         const parse = JSON.parse(cacheUserInfo);
-    //         if (parse) {
-    //             UserStore.setUserInfo(parse);
-    //             startHome();
-    //         } else {
-    //             startLogin();
-    //         }
-    //     }
-    // }
-    //
-    // const startLogin = () => {
-    //     navigation.replace('Login');
-    // }
-    //
-    // const startHome = () => {
-    //     navigation.replace('MainTab');
-    // }
-
-    return(
-        <View style={styles.root}>
-            <Image style={styles.logo_main} source={{ uri: "https://reactnative.dev/docs/assets/p_cat2.png" }} />
-        </View>
-    );
+  return (
+    <View style={styles.root}>
+      <Image style={styles.logo_image} source={Logo} />
+      <Text style={styles.logo_text}>玖零商城</Text>
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
-    root: {
-        width: '100%',
-        height: '100%',
-        backgroundColor: 'white',
-        flexDirection: 'column',
-        alignItems: 'center',
-    },
-    logo_main: {
-        width: 200,
-        height: 105,
-        marginTop: 200,
-        resizeMode: 'contain',
-    },
+  root: {
+    width: "100%",
+    height: "100%",
+    backgroundColor: "white",
+    flexDirection: "column",
+    alignItems: "center"
+  },
+  logo_image: {
+    width: 200,
+    height: 105,
+    marginTop: 200,
+    resizeMode: "contain"
+  },
+  logo_text: {
+    color: "#fa436a",
+    fontSize: 30
+  }
+
 });
