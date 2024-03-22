@@ -1,15 +1,15 @@
-import {get} from "../../utils/request";
+import { get, IResponse } from "@/utils/request";
 
 /**
  * 订单列表
  */
-export const queryOrderList = () => {
-    return get('/api/order/orderList/', {});
+export const queryOrderList = (): Promise<IResponse> => {
+    return get("/api/order/orderList/", {});
 };
 
 /**
  * 订单详情
  */
-export const queryOrderDetail = () => {
-    return get('/api/order/orderDetail/', {});
+export const queryOrderDetail = (): Promise<IResponse> => {
+    return get("/api/order/orderDetail/", {});
 };

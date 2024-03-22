@@ -1,4 +1,4 @@
-import { get, IResponse, post } from "../../utils/request";
+import { get, IResponse, post } from "@/utils/request";
 
 /**
  * 注册参数
@@ -44,6 +44,6 @@ export const userLogin = (params: ILogin): Promise<IResponse> => {
 /**
  * 获取用户信息
  */
-export const queryMemberInfo = () => {
-    return get('/api/member/info', {});
+export const queryMemberInfo = (): Promise<IResponse> => {
+    return get("/api/member/info", {});
 };
