@@ -63,10 +63,10 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         alignItems: 'center',
     },
-    logo_main: {
+    logo_image: {
         width: 200,
         height: 105,
         marginTop: 200,
-        resizeMode: 'contain',
-    },
+        resizeMode: "contain"
+    }
 });

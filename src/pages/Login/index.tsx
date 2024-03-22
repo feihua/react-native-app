@@ -1,80 +1,55 @@
-import React, { useState } from "react";
-import { Button, Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
-// import { useNavigation } from '@react-navigation/native';
-// import { StackNavigationProp } from '@react-navigation/stack';
-// import { load } from '../../utils/Storage';
-// import UserStore from '../../stores/UserStore';
-// @ts-ignore
+import React, { useEffect, useState } from "react";
+import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 import icon_triangle from "@images/icon_triangle.png";
-// @ts-ignore
 import icon_eye_open from "@images/icon_eye_open.png";
-// @ts-ignore
 import icon_eye_close from "@images/icon_eye_close.png";
-// @ts-ignore
-import { formatPhone, replaceBlank } from '../../utils/StringUtil';
-// @ts-ignore
+import Logo from "@images/shopping_cart.png";
+import { formatPhone, replaceBlank } from "@/utils/StringUtil";
+import { userLogin } from "@/api";
+import Toast from "react-native-root-toast";
+import { IResponse } from "@/utils/request";
+
+/**
+ * 描述：登录页面
+ * 作者：刘飞华
+ * 日期：2024/3/22 10:04
+ */
 export default ({ navigation }) => {
 
   const [eyeOpen, setEyeOpen] = useState<boolean>(true);
 
-  const [phone, setPhone] = useState<string>('');
-  const [pwd, setPwd] = useState<string>('');
-
+  const [phone, setPhone] = useState<string>("");
+  const [pwd, setPwd] = useState<string>("");
+  const [canLogin, setCanLogin] = useState<boolean>(false);
 
   const onLoginPress = async () => {
-    const canLogin = phone?.length === 13 && pwd?.length === 6;
-    // if (!canLogin || !check) {
-    //   return;
-    // }
 
-    // UserStore.requestLogin(replaceBlank(phone), pwd, (success: boolean) => {
-    //   if (success) {
-    //     navigation.replace('MainTab');
-    //   } else {
-    //     Toast.show('登陆失败，请检查用户名和密码');
-    //   }
-    // })
-    navigation.replace('MainTab');
-  }
+    if (!canLogin) {
+      return;
+    }
 
+    const res: IResponse = await userLogin({ account: replaceBlank(phone), password: pwd });
 
-  // const navigation = useNavigation<StackNavigationProp<any>>();
+    if (res.code !== 0) {
+      Toast.show(res.message, {
+        position: Toast.positions.CENTER
+      });
 
-  // useEffect(() => {
-  //     setTimeout(() => {
-  //         // getUserInfo();
-  //         navigation.replace("Home")
-  //     }, 2000);
-  // }, []);
+      return;
+    }
 
-  // const getUserInfo = async () => {
-  //     const cacheUserInfo = await load('userInfo');
-  //     if (!cacheUserInfo) {
-  //         startLogin();
-  //     } else {
-  //         const parse = JSON.parse(cacheUserInfo);
-  //         if (parse) {
-  //             UserStore.setUserInfo(parse);
-  //             startHome();
-  //         } else {
-  //             startLogin();
-  //         }
-  //     }
-  // }
-  //
-  // const startLogin = () => {
-  //     navigation.replace('Login');
-  // }
-  //
-  // const startHome = () => {
-  //     navigation.replace('MainTab');
-  // }
+    navigation.replace("MainTab");
 
-  const canLogin = phone?.length === 13 && pwd?.length === 6;
+  };
+
+  useEffect(() => {
+    setCanLogin(phone?.length === 13 && pwd?.length === 6);
+  }, [phone, pwd]);
+
 
   return (
     <View style={styles.root}>
-      <Image style={styles.logo_main} source={{ uri: "https://reactnative.dev/docs/assets/p_cat2.png" }} />
+      <Image style={styles.logo_image} source={Logo} />
       <Text style={styles.tip}>
         未注册的手机号登陆成功后将自动注册
       </Text>
@@ -140,9 +115,9 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     flexDirection: "column",
     alignItems: "center",
-    paddingHorizontal: 48,
+    paddingHorizontal: 48
   },
-  logo_main: {
+  logo_image: {
     width: 150,
     height: 105,
     marginTop: 150,
@@ -154,70 +129,70 @@ const styles = StyleSheet.create({
     marginTop: 6
   },
   phoneLayout: {
-    width: '100%',
+    width: "100%",
     height: 60,
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     borderBottomWidth: 1,
-    borderBottomColor: '#ddd',
-    marginTop: 28,
+    borderBottomColor: "#ddd",
+    marginTop: 28
   },
   phoneInput: {
     flex: 1,
     height: 60,
-    backgroundColor: 'transparent',
-    textAlign: 'left',
-    textAlignVertical: 'center',
+    backgroundColor: "transparent",
+    textAlign: "left",
+    textAlignVertical: "center",
     fontSize: 24,
-    color: '#333',
-    marginLeft: 16,
+    color: "#333",
+    marginLeft: 16
   },
   pre86: {
     fontSize: 24,
-    color: '#bbb',
+    color: "#bbb"
   },
   triangle: {
     width: 12,
     height: 6,
-    marginLeft: 6,
+    marginLeft: 6
   },
   pwdLayout: {
-    width: '100%',
+    width: "100%",
     height: 60,
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     borderBottomWidth: 1,
-    borderBottomColor: '#ddd',
-    marginTop: 8,
+    borderBottomColor: "#ddd",
+    marginTop: 8
   },
   pwdInput: {
     marginLeft: 0,
-    marginRight:16,
+    marginRight: 16
   },
   iconEye: {
     width: 30,
-    height: 30,
+    height: 30
   },
   loginButton: {
-    width: '100%',
+    width: "100%",
     height: 56,
-    backgroundColor: '#51aaf7',
-    justifyContent: 'center',
-    alignItems: 'center',
+    backgroundColor: "#51aaf7",
+    justifyContent: "center",
+    alignItems: "center",
     borderRadius: 28,
-    marginTop: 20,
+    marginTop: 20
   },
   loginButtonDisable: {
-    width: '100%',
+    width: "100%",
     height: 56,
-    backgroundColor: '#DDDDDD',
-    justifyContent: 'center',
-    alignItems: 'center',
+    backgroundColor: "#DDDDDD",
+    justifyContent: "center",
+    alignItems: "center",
     borderRadius: 28,
-    marginTop: 20,
+    marginTop: 20
   },
   loginTxt: {
     fontSize: 20,
-    color: 'white',
-  },
+    color: "white"
+  }
 });

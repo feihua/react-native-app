@@ -1,4 +1,4 @@
-import {get, post} from "../../utils/request";
+import { get, IResponse, post } from "../../utils/request";
 
 /**
  * 注册参数
@@ -10,11 +10,22 @@ export interface IRegister {
     confirmPassword: string;
 }
 
+export interface LoginResModel {
+    code: number;
+    message: string;
+    data: LoginResData;
+}
+
+export interface LoginResData {
+    token: string;
+    tokenHead: string;
+}
+
 /**
  * 用户注册
  */
 export const userRegister = (params: IRegister) => {
-    return post('/api/member/register', params);
+    return post("/api/member/register", params);
 };
 
 
@@ -26,8 +37,8 @@ export interface ILogin {
 /**
  * 登录
  */
-export const userLogin = (params: ILogin) => {
-    return post('/api/member/login', params);
+export const userLogin = (params: ILogin): Promise<IResponse> => {
+    return post("/api/member/login", params);
 };
 
 /**

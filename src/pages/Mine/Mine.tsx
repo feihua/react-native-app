@@ -83,10 +83,15 @@ export default ({ navigation }) => {
     >
       <View style={styles.mine_header}>
         <Image style={styles.user_bg} source={UserBg} />
-        <View style={styles.mine_header_left}>
+        <TouchableOpacity style={styles.mine_header_left}
+          onPress={() => {
+            navigation.navigate({
+              name: "Login"
+            });
+          }}>
           <Image style={styles.mine_header_img} source={{ uri: "https://macro-oss.oss-cn-shenzhen.aliyuncs.com/mall/icon/github_icon_02.png" }} />
           <Text style={{ color: "#303133", fontSize: 30 }}>koobe</Text>
-        </View>
+        </TouchableOpacity>
         <View style={styles.mine_header_right}>
           <TouchableOpacity
             style={styles.second_section_item}

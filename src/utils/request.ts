@@ -5,7 +5,7 @@ import Toast from "react-native-root-toast";
 export interface IResponse {
   code: number | string;
   data: any;
-  msg: string;
+  message: string;
   total: number;
 }
 
