@@ -1,4 +1,4 @@
-import axios, { AxiosResponse } from "axios";
+import axios from "axios";
 import Toast from "react-native-root-toast";
 
 // 返回res.data的interface
@@ -16,10 +16,22 @@ const instance = axios.create({
 });
 
 /**
- * 对返回体错误信息分类
+ * 拦截请求
+ */
+instance.interceptors.request.use(
+  config => {
+    console.log("req: ", config.baseURL!.trim() + config.url);
+    console.log("params: ", config.data);
+    return config;
+  }
+);
+
+/**
+ * 拦截响应
  */
 instance.interceptors.response.use(
   response => {
+    console.log("res: ", response.data);
     if (response.status === 200) {
       return response.data;
     } else {
@@ -54,7 +66,7 @@ instance.interceptors.response.use(
  * @param params 参数
  * @param method 请求类型
  */
-export const request = (url: string, params: any, method: string): Promise<AxiosResponse<any, any>> => {
+export const request = (url: string, params: any, method: string): Promise<IResponse> => {
   if (method === "get") {
     return get(url, params);
   } else {
@@ -67,7 +79,7 @@ export const request = (url: string, params: any, method: string): Promise<Axios
  * @param url 请求地址
  * @param params 参数
  */
-export const get = (url: string, params: any): Promise<AxiosResponse<any, any>> => {
+export const get = (url: string, params: any): Promise<IResponse> => {
   return instance.get(url, {
     params: params
   });
@@ -78,6 +90,6 @@ export const get = (url: string, params: any): Promise<AxiosResponse<any, any>> 
  * @param url 请求地址
  * @param params 参数
  */
-export const post = (url: string, params: any): Promise<AxiosResponse<any, any>> => {
+export const post = (url: string, params: any): Promise<IResponse> => {
   return instance.post(url, params);
 };
