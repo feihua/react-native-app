@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
+import {Button, Image, StyleSheet, Text, TextInput, TouchableOpacity, View} from "react-native";
 import icon_triangle from "@images/icon_triangle.png";
 import icon_eye_open from "@images/icon_eye_open.png";
 import icon_eye_close from "@images/icon_eye_close.png";
@@ -8,13 +8,14 @@ import { formatPhone, replaceBlank } from "@/utils/StringUtil";
 import { userLogin } from "@/api";
 import Toast from "react-native-root-toast";
 import { IResponse } from "@/utils/request";
+import {inject, observer} from "mobx-react";
 
 /**
  * 描述：登录页面
  * 作者：刘飞华
  * 日期：2024/3/22 10:04
  */
-export default ({ navigation }) => {
+const Login =  (props) => {
 
   const [eyeOpen, setEyeOpen] = useState<boolean>(true);
 
@@ -38,7 +39,7 @@ export default ({ navigation }) => {
       return;
     }
 
-    navigation.replace("MainTab");
+    // navigation.replace("MainTab");
 
   };
 
@@ -46,6 +47,9 @@ export default ({ navigation }) => {
     setCanLogin(phone?.length === 13 && pwd?.length === 6);
   }, [phone, pwd]);
 
+  const onPress = () => {
+    props.store.user.addNum()
+  };
 
   return (
     <View style={styles.root}>
@@ -103,11 +107,14 @@ export default ({ navigation }) => {
       >
         <Text style={styles.loginTxt}>登陆</Text>
       </TouchableOpacity>
-
+      <View>
+        <Text>{props.store.user.num}</Text>
+        <Button onPress={onPress} title="按钮" />
+      </View>
     </View>
   );
 }
-
+export default inject('store')(observer(Login));
 const styles = StyleSheet.create({
   root: {
     width: "100%",
