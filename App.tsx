@@ -32,7 +32,6 @@ function App(): React.JSX.Element {
 
     return (
         <Provider store={store}>
-            <View>
                 <NavigationContainer>
                     <Stack.Navigator initialRouteName="Welcome"
                       screenOptions={{
@@ -59,7 +58,6 @@ function App(): React.JSX.Element {
 
                     </Stack.Navigator>
                 </NavigationContainer>
-            </View>
         </Provider>
 
     );

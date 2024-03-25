@@ -20,6 +20,7 @@ const instance = axios.create({
  */
 instance.interceptors.request.use(
   config => {
+    console.log("==================", "请求开始", "==================");
     console.log("req: ", config.baseURL!.trim() + config.url);
     console.log("params: ", config.data);
     return config;
@@ -32,6 +33,8 @@ instance.interceptors.request.use(
 instance.interceptors.response.use(
   response => {
     console.log("res: ", response.data);
+    console.log("==================", "请求结束", "==================");
+    console.log("");
     if (response.status === 200) {
       return response.data;
     } else {
