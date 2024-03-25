@@ -1,7 +1,7 @@
-import RootStore from "./modules/user";
+import UserInfoStore from "./modules/user";
 
 const store = {
-    user: new RootStore()
+    user: new UserInfoStore()
 };
 
 export default store

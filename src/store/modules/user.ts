@@ -1,19 +1,43 @@
-import {action, makeAutoObservable, makeObservable, observable} from 'mobx'; // 注意引用的包是mobx
+import { makeAutoObservable } from "mobx";
+import AsyncStorage from "@react-native-async-storage/async-storage"; // 注意引用的包是mobx
 
-class RootStore {
-     num = 1; // 数据源
-    // @observable num2 = 2; // 多个数据源的情况，方法也一样，这里不再演示
-    constructor() {
-        makeAutoObservable(this); // 视图更新必须要调用
-    }
+/**
+ * 描述：用户信息状态管理
+ * 作者：刘飞华
+ * 日期：2024/3/25 14:18
+ */
+class UserInfoStore {
+  num = 1; // 数据源
+  // @observable num2 = 2; // 多个数据源的情况，方法也一样，这里不再演示
+  data = {};
 
-     addNum() { // 改变数据的方法
-        this.num++;
+  constructor() {
+    makeAutoObservable(this); // 视图更新必须要调用
+  }
+
+  addNum() { // 改变数据的方法
+    this.num++;
+  }
+
+  async saveData(key, value) {
+    this.data[key] = value;
+    try {
+      await AsyncStorage.setItem(key, JSON.stringify(value));
+    } catch (e) {
+      // handle error
     }
+  }
+
+  async loadData(key) {
+    try {
+      const value = await AsyncStorage.getItem(key);
+      if (value !== null) {
+        this.data[key] = JSON.parse(value);
+      }
+    } catch (e) {
+      // handle error
+    }
+  }
 }
 
-// export type RootStoreType = InstanceType<typeof RootStore>; // 给指定界面的ts类型使用
-// export default new RootStore(); // 导出实例化
-// const store=new RootStore(); // 导出实例化
-// export default store; // 导出实例化
-export default RootStore
+export default UserInfoStore;
