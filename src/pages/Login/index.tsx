@@ -9,6 +9,7 @@ import { userLogin } from "@/api";
 import Toast from "react-native-root-toast";
 import { IResponse } from "@/utils/request";
 import { inject, observer } from "mobx-react";
+import { saveStorage } from "@/utils/Storage";
 
 /**
  * 描述：登录页面
@@ -16,6 +17,8 @@ import { inject, observer } from "mobx-react";
  * 日期：2024/3/22 10:04
  */
 const Login = (props) => {
+
+  const { navigation, store } = props;
 
   const [eyeOpen, setEyeOpen] = useState<boolean>(true);
 
@@ -39,8 +42,10 @@ const Login = (props) => {
       return;
     }
 
-    await props.store.user.saveData("token", res.data.token);
-    props.navigation.goBack();
+    //保存token
+    await saveStorage("token", res.data.token);
+    //跳转回mine页面
+    navigation.goBack();
 
   };
 
@@ -48,9 +53,6 @@ const Login = (props) => {
     setCanLogin(phone?.length === 13 && pwd?.length === 6);
   }, [phone, pwd]);
 
-  const onPress = () => {
-    props.store.user.addNum();
-  };
 
   return (
     <View style={styles.root}>
