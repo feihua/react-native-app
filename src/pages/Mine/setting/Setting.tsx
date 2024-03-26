@@ -1,5 +1,6 @@
 import React from "react";
-import { FlatList, Image, StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import { FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { inject, observer } from "mobx-react";
 // import { useNavigation } from '@react-navigation/native';
 // import { StackNavigationProp } from '@react-navigation/stack';
 // import { load } from '../../utils/Storage';
@@ -7,9 +8,9 @@ import { FlatList, Image, StyleSheet, Text, View, TouchableOpacity } from "react
 // @ts-ignore
 
 
-// @ts-ignore
-export default ({ navigation }) => {
+const Setting = (props) => {
 
+  const { navigation, store } = props;
   React.useEffect(() => {
     // Use `setOptions` to update the button that we previously specified
     // Now the button includes an `onPress` handler to update the count
@@ -68,25 +69,27 @@ export default ({ navigation }) => {
         />
         <TouchableOpacity
           style={styles.login_out_txt}
-          onPress={() => {
+          onPress={async () => {
+            await store.user.logout();
             navigation.navigate({
               name: "Mine"
             });
           }}
         >
-          <Text style={{color:'#fa436a', fontSize:15}}>退出登录</Text>
+          <Text style={{ color: "#fa436a", fontSize: 15 }}>退出登录</Text>
         </TouchableOpacity>
       </View>
     </View>
   );
-}
+};
 
+export default inject("store")(observer(Setting));
 const styles = StyleSheet.create({
   root: {
     width: "100%",
     height: "100%",
     backgroundColor: "#f5f5f5",
-    flexDirection: "column",
+    flexDirection: "column"
   },
   container: {
     // flex: 1,
@@ -96,10 +99,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderBottomWidth: 1,
     borderBottomColor: "#ddd",
-    backgroundColor: 'white',
+    backgroundColor: "white",
     // height:44,
     flexDirection: "row",
-    padding:15
+    padding: 15
   },
   detail: {
     backgroundColor: "white",
@@ -111,7 +114,7 @@ const styles = StyleSheet.create({
     // height:15
   },
   item_detail: {
-    color: '#303133'
+    color: "#303133"
   },
   go_detail_img: {
     height: 15,
@@ -119,12 +122,12 @@ const styles = StyleSheet.create({
     position: "absolute",
     right: 20
   },
-  login_out_txt:{
-    marginTop:20,
+  login_out_txt: {
+    marginTop: 20,
     backgroundColor: "white",
-    width: '100%',
+    width: "100%",
     alignItems: "center",
     justifyContent: "center",
-    height:50
+    height: 50
   }
 });
