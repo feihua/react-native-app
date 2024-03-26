@@ -13,7 +13,7 @@ import Setting from "@images/setting.png";
 /**
  * 描述：其它信息
  * 作者：刘飞华
- * 日期：2024/3/26 11:19
+ * 日期：2024/3/26 11:22
  */
 const OterInfo = (props) => {
 

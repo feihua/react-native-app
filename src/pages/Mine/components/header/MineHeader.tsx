@@ -3,6 +3,8 @@ import * as React from "react";
 import { inject, observer } from "mobx-react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import UserBg from "@images/user-bg.jpg";
+import { useNavigation } from "@react-navigation/native";
+import { StackNavigationProp } from "@react-navigation/stack";
 
 /**
  * 描述：个人信息头部区域
@@ -11,27 +13,25 @@ import UserBg from "@images/user-bg.jpg";
  */
 const MineHeader = (props) => {
 
-  const { navigation, store } = props;
+  const { store } = props;
+
+  const navigation = useNavigation<StackNavigationProp<any>>();
 
   return (
     <View style={styles.mine_header}>
       <Image style={styles.user_bg} source={UserBg} />
       <TouchableOpacity style={styles.mine_header_left}
         onPress={() => {
-          navigation.navigate({
-            name: "Login"
-          });
+          navigation.navigate("Login");
         }}>
         <Image style={styles.mine_header_img} source={{ uri: "https://macro-oss.oss-cn-shenzhen.aliyuncs.com/mall/icon/github_icon_02.png" }} />
-        <Text style={{ color: "#303133", fontSize: 30 }}>koobe</Text>
+        <Text style={{ color: "#303133", fontSize: 30 }}>{store.user.data.nickname}</Text>
       </TouchableOpacity>
       <View style={styles.mine_header_right}>
         <TouchableOpacity
           style={styles.second_section_item}
           onPress={() => {
-            navigation.navigate({
-              name: "Message"
-            });
+            navigation.navigate("Message");
           }}
         >
           <Image style={styles.mine_header_message_img} source={require("@images/message.png")} />
@@ -39,9 +39,7 @@ const MineHeader = (props) => {
         <TouchableOpacity
           style={styles.second_section_item}
           onPress={() => {
-            navigation.navigate({
-              name: "Setting"
-            });
+            navigation.navigate("Setting");
           }}
         >
           <Image style={styles.mine_header_setting_img} source={require("@images/setting_white.png")} />
