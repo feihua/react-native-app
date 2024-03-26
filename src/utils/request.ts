@@ -1,5 +1,6 @@
 import axios from "axios";
 import Toast from "react-native-root-toast";
+import { getStorage } from "@/utils/Storage";
 
 // 返回res.data的interface
 export interface IResponse {
@@ -19,10 +20,12 @@ const instance = axios.create({
  * 拦截请求
  */
 instance.interceptors.request.use(
-  config => {
+  async config => {
     console.log("==================", "请求开始", "==================");
     console.log("req: ", config.baseURL!.trim() + config.url);
     console.log("params: ", config.data);
+    const token = await getStorage("token");
+    config.headers.Authorization = `Bearer ${token}`;
     return config;
   }
 );
