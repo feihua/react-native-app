@@ -1,5 +1,6 @@
-import { makeAutoObservable } from "mobx";
-import AsyncStorage from "@react-native-async-storage/async-storage"; // 注意引用的包是mobx
+import { makeAutoObservable, runInAction } from "mobx";
+import { queryMemberInfo } from "@/api";
+import { clearStorage } from "@/utils/Storage"; // 注意引用的包是mobx
 
 /**
  * 描述：用户信息状态管理
@@ -7,37 +8,29 @@ import AsyncStorage from "@react-native-async-storage/async-storage"; // 注意�
  * 日期：2024/3/25 14:18
  */
 class UserInfoStore {
-  num = 1; // 数据源
-  // @observable num2 = 2; // 多个数据源的情况，方法也一样，这里不再演示
   data = {};
 
   constructor() {
     makeAutoObservable(this); // 视图更新必须要调用
   }
 
-  addNum() { // 改变数据的方法
-    this.num++;
+  //会员退出登录
+  async logout() {
+    await clearStorage();
+    runInAction(() => {
+      this.data = {};
+    });
+
   }
 
-  async saveData(key, value) {
-    this.data[key] = value;
-    try {
-      await AsyncStorage.setItem(key, JSON.stringify(value));
-    } catch (e) {
-      // handle error
-    }
-  }
-
-  async loadData(key) {
-    try {
-      const value = await AsyncStorage.getItem(key);
-      if (value !== null) {
-        this.data[key] = JSON.parse(value);
-      }
-    } catch (e) {
-      // handle error
-    }
+  //获取会员信息
+  async queryUserInfo() {
+    const res = await queryMemberInfo();
+    runInAction(() => {
+      this.data = res.data;
+    });
   }
 }
 
-export default UserInfoStore;
+const userInfoStore = new UserInfoStore();
+export default userInfoStore;

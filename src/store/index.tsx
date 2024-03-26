@@ -1,8 +1,8 @@
-import UserInfoStore from "./modules/user";
+import userInfoStore from "./modules/user";
 
 const store = {
-    user: new UserInfoStore()
+  user: userInfoStore
 };
 
-export default store
+export default store;
 

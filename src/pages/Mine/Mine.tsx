@@ -1,7 +1,5 @@
 import React from "react";
 import { Image, RefreshControl, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-// import { useNavigation } from '@react-navigation/native';
-// import { StackNavigationProp } from '@react-navigation/stack';
 // import { load } from '../../utils/Storage';
 // import UserStore from '../../stores/UserStore';
 import UserBg from "@images/user-bg.jpg";
@@ -26,17 +24,34 @@ import Daifukuan from "@images/daifukuan.png";
 import Yifukuan from "@images/yifukuan.png";
 
 import Tuihuo from "@images/tuihuo.png";
+import { inject, observer } from "mobx-react";
+import { getStorage } from "@/utils/Storage";
+import { useFocusEffect } from "@react-navigation/native";
+import store from "@/store";
 
-export default ({ navigation }) => {
+const Mine = (props) => {
 
-  // const navigation = useNavigation<StackNavigationProp<any>>();
+  const { navigation, store } = props;
 
-  // useEffect(() => {
-  //     setTimeout(() => {
-  //         // getUserInfo();
-  //         navigation.replace("Home")
-  //     }, 2000);
-  // }, []);
+  useFocusEffect(
+    React.useCallback(() => {
+      // Do something when the screen is focused
+      queryUserInfo();
+      return () => {
+        // Do something when the screen is unfocused
+        // Useful for cleanup functions
+      };
+    }, [])
+  );
+
+  const queryUserInfo = async () => {
+    const token = await getStorage("token");
+    console.log("token", token);
+    if (token) {
+      await store.user.queryUserInfo();
+      console.log("store", store.user.data);
+    }
+  };
 
   // const getUserInfo = async () => {
   //     const cacheUserInfo = await load('userInfo');
@@ -71,6 +86,7 @@ export default ({ navigation }) => {
   const onRefresh = React.useCallback(() => {
     setRefreshing(true);
 
+    store.user.queryUserInfo();
     wait(2000).then(() => setRefreshing(false));
   }, []);
 
@@ -121,22 +137,23 @@ export default ({ navigation }) => {
       <View style={styles.all_section}>
         <View style={styles.first_section}>
           <View style={styles.first_section_item}>
-            <Text>5000</Text>
+            <Text>{store.user.data.integration}</Text>
             <Text>积分</Text>
           </View>
           <View style={styles.first_section_item}>
-            <Text>1000</Text>
+            <Text>{store.user.data.growth}</Text>
             <Text>成长值</Text>
           </View>
           <TouchableOpacity
             style={styles.first_section_item}
             onPress={() => {
-              navigation.navigate({
-                name: "Coupon"
-              });
+              // queryUserInfo1()
+              // navigation.navigate({
+              //   name: "Coupon"
+              // });
             }}
           >
-            <Text>5</Text>
+            <Text>{store.user.data.couponCount}</Text>
             <Text>优惠券</Text>
           </TouchableOpacity>
         </View>
@@ -283,8 +300,8 @@ export default ({ navigation }) => {
       </View>
     </ScrollView>
   );
-}
-
+};
+export default inject("store")(observer(Mine));
 const styles = StyleSheet.create({
   root: {
     width: "100%",
